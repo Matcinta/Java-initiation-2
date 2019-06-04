@@ -1,9 +1,19 @@
 
-public class Periodique extends Ecrit {
+public class Periodique extends Livre {
 
-	public Periodique(String titre, String auteur, boolean emprunt) {
-		super(titre, auteur, emprunt);
-		// TODO Auto-generated constructor stub
+	private int numPeriodique;
+
+	public Periodique(String ptitre, String pauteur, boolean pemprunt, int pnbPages, int pnumPeriodique) {
+		super(ptitre, pauteur, pemprunt, pnbPages);
+		this.numPeriodique = pnumPeriodique;
 	}
 
+	public int getNumPeriodique() {
+		return numPeriodique;
+	}
+
+	public void setNumPeriodique(int numPeriodique) {
+		this.numPeriodique = numPeriodique;
+	}
 }
+

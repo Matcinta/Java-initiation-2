@@ -1,9 +1,23 @@
+public class Livre extends Document {
 
-public class Livre extends Ecrit {
+    protected int nbPages;
 
-	public Livre(String titre, String auteur, boolean emprunt) {
-		super(titre, auteur, emprunt);
-		// TODO Auto-generated constructor stub
-	}
+    //CONSTRUCTEUR
+    public Livre(String ptitre, String pauteur, boolean pemprunt, int pnbPages) {
+        super(ptitre, pauteur, pemprunt);
+        this.nbPages = pnbPages;
+    }
+    // GETTER
+    public int getNbPages() {
+        return nbPages;
+    }
 
+    // SETTER
+    public void setNbPages(int nbPages) {
+        this.nbPages = nbPages;
+    }
+
+    public double coutLivre(){
+        return this.getNbPages() * 0.5;
+    }
 }
