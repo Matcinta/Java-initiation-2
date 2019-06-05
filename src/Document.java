@@ -1,56 +1,48 @@
 
 public abstract class Document {
 
-    // variables d'instance: dÃ©finissent les caractÃ©ristiques de note objet Document
-    protected String titre;
-    protected String auteur;
-    protected boolean emprunt;
+	// variables d'instance: définissent les caractéristiques de note objet
+	// Document
+	protected String titre;
+	protected String auteur;
 
-    // CONSTRUCTEUR: doit porter le mÃªme nom que notre classe, soit ici Document
-    // on lui passe des parametres
-    public Document(String ptitre, String pauteur, boolean pemprunt) {
+	// CONSTRUCTEUR: doit porter le même nom que notre classe, soit ici Document
+	// on lui passe des parametres
+	public Document(String ptitre, String pauteur) {
 
-        // super fait rÃ©fÃ©rence aux variables d'instance de la classe mï¿½re
-        this.titre = ptitre;
-        this.auteur = pauteur;
-        this.emprunt = pemprunt;
-    }
+		// super fait référence aux variables d'instance de la classe mère
+		this.titre = ptitre;
+		this.auteur = pauteur;
+	}
 
-    // ************* ACCESSEURS *************
+	// ************* ACCESSEURS *************
 
+	public String getTitre() {
+		return titre;
+	}
 
-    public String getTitre() {
-        return titre;
-    }
+	public String getAuteur() {
+		return auteur;
+	}
 
-    public String getAuteur() {
-        return auteur;
-    }
+	// ************* MUTATEURS *************
 
-    public boolean isEmprunt() {
-        return emprunt;
-    }
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 
-    // ************* MUTATEURS *************
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
 
+	@Override
+	public String toString() {
+		return "\nType de document: " + this.getClass() + "\nTitre du document: " + titre + "\nNom de l'auteur: "
+				+ auteur;
+	}
 
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
+	public abstract boolean isEmpruntable();
 
-    public void setAuteur(String auteur) {
-        this.auteur = auteur;
-    }
+	public abstract float coutDoc();
 
-    public void setEmprunt(boolean emprunt) {
-        this.emprunt = emprunt;
-    }
-
-
-    @Override
-    public String toString() {
-        return  "Titre du document: " + titre +
-                "\nNom de l'auteur: " + auteur +
-                "\nEmpruntable: " + emprunt;
-    }
 }

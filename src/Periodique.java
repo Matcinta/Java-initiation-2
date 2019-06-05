@@ -3,8 +3,8 @@ public class Periodique extends Livre {
 
 	private int numPeriodique;
 
-	public Periodique(String ptitre, String pauteur, boolean pemprunt, int pnbPages, int pnumPeriodique) {
-		super(ptitre, pauteur, pemprunt, pnbPages);
+	public Periodique(String ptitre, String pauteur, int pnbPages, int pnumPeriodique) {
+		super(ptitre, pauteur, pnbPages);
 		this.numPeriodique = pnumPeriodique;
 	}
 
@@ -15,5 +15,9 @@ public class Periodique extends Livre {
 	public void setNumPeriodique(int numPeriodique) {
 		this.numPeriodique = numPeriodique;
 	}
-}
 
+	@Override
+	public boolean isEmpruntable() {
+		return false;
+	}
+}

@@ -1,23 +1,31 @@
 public class Livre extends Document {
 
-    protected int nbPages;
+	protected boolean emprunt;
+	protected int nbPages;
 
-    //CONSTRUCTEUR
-    public Livre(String ptitre, String pauteur, boolean pemprunt, int pnbPages) {
-        super(ptitre, pauteur, pemprunt);
-        this.nbPages = pnbPages;
-    }
-    // GETTER
-    public int getNbPages() {
-        return nbPages;
-    }
+	// CONSTRUCTEUR
+	public Livre(String ptitre, String pauteur, int pnbPages) {
+		super(ptitre, pauteur);
+		this.nbPages = pnbPages;
+	}
 
-    // SETTER
-    public void setNbPages(int nbPages) {
-        this.nbPages = nbPages;
-    }
+	// GETTER
+	public int getNbPages() {
+		return nbPages;
+	}
 
-    public double coutLivre(){
-        return this.getNbPages() * 0.5;
-    }
+	// SETTER
+	public void setNbPages(int nbPages) {
+		this.nbPages = nbPages;
+	}
+
+	@Override
+	public boolean isEmpruntable() {
+		return true;
+	}
+
+	@Override
+	public float coutDoc() {
+		return this.getNbPages() * 0.5f;
+	}
 }

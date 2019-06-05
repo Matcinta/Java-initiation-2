@@ -3,18 +3,49 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		Livre livre = new Livre("Les trois petits cochons", "Flaubert", true, 25);
-		Video video = new Video("La citÃ© de la peur", "Les Nuls", true, "DVD", 70);
-		Periodique periodique = new Periodique("Science", "A. Einstein", false, 356, 8);
+		// Creation de documents objet Livre
 
-		System.out.println(livre);
-		System.out.println("CoÃ»t du livre: "+ livre.coutLivre()+ " â‚¬\n");
+		Livre livre1 = new Livre("Les trois petits cochons", "Flaubert", 25);
 
-		System.out.println(video+"\n");
+		// Creation de documents objet Video
 
-		System.out.println(periodique);
-		System.out.println("CoÃ»t du pÃ©riodique: "+ periodique.coutLivre()+ " â‚¬\n");
+		Video video1 = new Video("La cité de la peur", "Les Nuls", TypeDoc.DVD);
+		Video video2 = new Video("Rrrrrr", "A. Chabat", TypeDoc.BlueRay);
+		Video video3 = new Video("La ruée vers l'or", "C. Chaplin", TypeDoc.VHS);
 
+		// Creation de documents objet Periodique
+
+		Periodique periodique1 = new Periodique("Science", "A. Einstein", 356, 8);
+
+		System.out.println(livre1);
+		System.out.println("Coût du livre: " + livre1.coutDoc() + " €\n");
+		System.out.println(livre1.isEmpruntable());
+
+		System.out.println(video1 + "\n");
+		System.out.println(video1.isEmpruntable());
+
+		System.out.println(periodique1);
+		System.out.println("Coût du périodique: " + periodique1.coutDoc() + " €\n");
+		System.out.println(periodique1.isEmpruntable());
+
+		// Creation d'une bibliotheque
+
+		Bibliotheque bibliotheque = new Bibliotheque();
+
+		// Ajout de documents dans la bibliotheque
+
+		bibliotheque.ajouter(livre1);
+		bibliotheque.ajouter(video1);
+		bibliotheque.ajouter(video2);
+		bibliotheque.ajouter(video3);
+
+		// Affiche le contenu de la bibliothèque
+
+		bibliotheque.afficher();
+
+		// Affiche le nombre de Video présentes dans la bibliotheque
+
+		System.out.println("\nLe nombre de DVD est de: " + bibliotheque.compteurDVD());
 
 	}
 

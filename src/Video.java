@@ -1,38 +1,47 @@
 
 public final class Video extends Document {
 
-	// variables d'instance dÃ©finit les caractÃ©ristiques propres Ã  notre objet
+	// variables d'instance définit les caractéristiques propres à notre objet
 	// ici Video
-	private String typeDeSupport;
-	private double coutVideo;
+
+	private TypeDoc typeDoc;
 
 	// CONSTRUCTEUR
-	public Video(String ptitre, String pauteur, boolean pemprunt, String ptypeDeSupport, double pcoutVideo) {
+	public Video(String ptitre, String pauteur, TypeDoc typeDoc) {
 
-		//variables d'instance de la classe mÃ¨re
-		super(ptitre, pauteur, pemprunt);
+		// variables d'instance de la classe mère
+		super(ptitre, pauteur);
 
-		//variables d'instance de notre classe courante soit Video
-		this.typeDeSupport = ptypeDeSupport;
-		this.coutVideo = pcoutVideo;
+		// variables d'instance de notre classe courante soit Video
+		this.typeDoc = typeDoc;
+
+	}
+
+	public TypeDoc getTypeDoc() {
+		return typeDoc;
+	}
+
+	public void setTypeDoc(TypeDoc typeDoc) {
+		this.typeDoc = typeDoc;
 	}
 
 	// ************* ACCESSEURS *************
-	public String getTypeDeSupport() {
-		return typeDeSupport;
-	}
 
 	// ************* MUTATEURS *************
-	public void setTypeDeSupport(String typeDeSupport) {
-		this.typeDeSupport = typeDeSupport;
-
-	}
 
 	@Override
 	public String toString() {
-		return  "Titre du document: " + titre +
-				"\nNom de l'auteur: " + auteur +
-				"\nEmpruntable: " + emprunt +
-				"\nCoÃ»t de la vidÃ©o: " + coutVideo + " â‚¬";
+		return "\nType de document: " + this.getClass() + "\nTitre du document: " + titre + "\nNom de l'auteur: "
+				+ auteur + "\nCoût de la vidéo: " + this.coutDoc() + " €";
+	}
+
+	@Override
+	public boolean isEmpruntable() {
+		return true;
+	}
+
+	@Override
+	public float coutDoc() {
+		return 70;
 	}
 }
